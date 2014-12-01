@@ -65,6 +65,7 @@ class DBManager(object):
 
         except sqlite3.OperationalError as e:
             print str(e),e.args
+            #print '''%s,%s,%d,%s,%d,%d)'''%(tweet.user.name,tweet.text,tweet.id,tweet.created_at.strftime('%Y-%m-%d : %H:%M:%S'),tweet.favorite_count,tweet.retweet_count)
         if success_cnt:
             subprocess.Popen(['notify-send','-t','1','%d records added till ID = %d' %(success_cnt,self.cursor.lastrowid)])
             self.conn.commit()
@@ -147,4 +148,10 @@ class DBManager(object):
     def create_table_general(self,cmd):
         self.cursor.execute(cmd)
         self.conn.commit()
+
+#con = sqlite3.connect('/home/anrc/PycharmProjects/Aggregator/news_check.db')
+#D = DBManager(con)
+#print D.get_coloumn_names('ndtv')
+#D.insert_record(table_name='ndtv',URL='a',Title='b',Timestamp='n')#D.clear_table('ndtv')
+#print D.get_coloumn_names('ndtv')
 

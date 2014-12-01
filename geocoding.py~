@@ -5,7 +5,7 @@ import json
 import db_class_general, sqlite3
 
 def get_latlng(add,type=''):
-    DB = db_class_general.DBManager(sqlite3.connect('/path/to/db'))	#Optional external DB to access cached Geocoded information. If nto available use Geocoding API
+    DB = db_class_general.DBManager(sqlite3.connect('/path/to/db'))	#Optional external DB to access Geocoded information. If nto available use Geocoding API
     res = DB.other_sqlite_ops('select * from Geocode where Place="%s" COLLATE NOCASE'%(add))
     if not res:
         address = urllib2.quote(add)

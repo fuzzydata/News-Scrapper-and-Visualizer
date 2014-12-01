@@ -10,7 +10,7 @@ class ThreadingSimpleServer(SocketServer.ThreadingMixIn,
     pass
 
 home_path = os.getenv('HOME') + '/'
-os.chdir(home_path + '/path/to/server/directory/')
+os.chdir(home_path + 'PycharmProjects/Aggregator/JS_Files/')
 port = 9000
 Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
 
